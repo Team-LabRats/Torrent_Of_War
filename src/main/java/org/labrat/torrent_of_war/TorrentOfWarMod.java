@@ -21,11 +21,17 @@ public class TorrentOfWarMod {
 
     // Define mod id in a common place for everything to reference
     public static final String MODID = "torrent_of_war";
+    public static final String NAME = "Torrent of War";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public TorrentOfWarMod() {
+        TorrentOfWarMod.init();
         DistExecutor.unsafeRunForDist(()-> ClientProxy::new, ()-> CommonProxy::new);
+    }
+
+    private static void init() {
+        LOGGER.info("{} is initializing---", NAME);
     }
 
 }

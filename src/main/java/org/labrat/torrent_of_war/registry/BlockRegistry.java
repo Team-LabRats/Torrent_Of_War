@@ -17,12 +17,13 @@ public class BlockRegistry {
     public static final Object2ObjectArrayMap<String, RegistryObject<OresBlock>> ORE_BLOCKS = new Object2ObjectArrayMap<>();
 
     public static void init(IEventBus modEventBus){
-        BLOCKS.register(modEventBus);
         for(OreTypes oreType : OreTypes.values()){
             for(StoneType stoneType : StoneType.values()){
                 String id = oreType.getId()+"_"+stoneType.getBlock().getDescriptionId()+"_ore";
                 ORE_BLOCKS.put(id, BLOCKS.register(id, ()->new OresBlock(oreType,stoneType)));
             }
         }
+
+        BLOCKS.register(modEventBus);
     }
 }
