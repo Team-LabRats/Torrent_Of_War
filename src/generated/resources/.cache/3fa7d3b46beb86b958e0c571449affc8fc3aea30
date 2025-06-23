@@ -1,10 +1,10 @@
-// 1.20.1	2025-06-23T12:21:03.395070499	Block States: torrentofwar
+// 1.20.1	2025-06-23T12:33:56.995792724	Block States: torrentofwar
 0cc49fca8e74e0d9fc23232e5b508fd9c1cc4b37 assets/torrentofwar/blockstates/soap_stone.json
 2f2fad18864fed727f1acef6f0c11cfd6afe3040 assets/torrentofwar/blockstates/terranium_deepslate_ore.json
 6ac84253ab05b75004f97e02347ea14b584de587 assets/torrentofwar/blockstates/terranium_end_stone_ore.json
 2958d2a444839ccbcb6609f446a0583b9ff01924 assets/torrentofwar/blockstates/terranium_netherrack_ore.json
 ff54420583a631e338ab9e6f120d04a9bd143175 assets/torrentofwar/blockstates/terranium_stone_ore.json
-b99ef56143bf2475178b77c5544630e0d0b29be3 assets/torrentofwar/models/block/soap_stone.json
+f9c842edcbec56a4403d76eb838870b99d058069 assets/torrentofwar/models/block/soap_stone.json
 4b08f43b5dcac50d56056a3301726bd931201bf0 assets/torrentofwar/models/block/terranium_deepslate_ore.json
 265b02da005ab17bfee4bf8fa01bf5e5264982bc assets/torrentofwar/models/block/terranium_end_stone_ore.json
 fd13ee4d8b8bc38718a51c46b1ec1191444a353c assets/torrentofwar/models/block/terranium_netherrack_ore.json

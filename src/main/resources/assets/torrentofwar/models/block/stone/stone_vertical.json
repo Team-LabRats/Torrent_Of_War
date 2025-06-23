@@ -1,20 +1,6 @@
 {
-  "parent": "block/block",
+  "parent": "block/cube_all",
   "textures": {
-    "0": "torrentofwar:block/stone/base_stone_vertical"
-  },
-  "elements": [
-    {
-      "from": [0, 0, 0],
-      "to": [16, 16, 16],
-      "faces": {
-        "north":  { "texture": "#0"},
-        "east":   { "texture": "#0" },
-        "south":  { "texture": "#0" },
-        "west":   { "texture": "#0" },
-        "up":     { "texture": "#0" },
-        "down":   { "texture": "#0" }
-      }
-    }
-  ]
+    "all": "torrentofwar:block/stone/base_stone_vertical"
+  }
 }

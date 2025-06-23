@@ -11,7 +11,7 @@ public enum StoneType {
     NETHERRACK(Blocks.NETHERRACK),
     END_STONE(Blocks.END_STONE),
 
-    SOAP_STONE(TorrentOfWarMod.MODID,StoneTextureType.VERTICAL,0xfffbd9 ,
+    SOAP_STONE(TorrentOfWarMod.MODID,StoneTextureType.HORIZONTAL,0xfffbd9 ,
             2.0F, 6.0F)
     ;
 

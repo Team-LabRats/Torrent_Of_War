@@ -21,7 +21,7 @@ import org.labrat.torrentofwar.registry.BlockRegistry;
 
 import java.util.Map;
 
-@Mod.EventBusSubscriber(modid = TorrentOfWarMod.MODID,value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = TorrentOfWarMod.MODID,value = Dist.CLIENT)
 public class ClientProxy extends CommonProxy{
 
     @SubscribeEvent
