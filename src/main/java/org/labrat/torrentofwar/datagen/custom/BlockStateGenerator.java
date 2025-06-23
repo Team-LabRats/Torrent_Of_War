@@ -12,8 +12,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.labrat.torrentofwar.TorrentOfWarMod;
 import org.labrat.torrentofwar.api.block.OresBlock;
+import org.labrat.torrentofwar.api.ores.OreTypes;
 import org.labrat.torrentofwar.api.ores.StoneType;
 import org.labrat.torrentofwar.registry.BlockRegistry;
+import org.labrat.torrentofwar.utils.KeyPair;
 
 import java.util.Map;
 
@@ -24,9 +26,9 @@ public class BlockStateGenerator extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        for(Map.Entry<String, RegistryObject<OresBlock>> entry : BlockRegistry.ORE_BLOCKS.entrySet()){
+        for(Map.Entry<KeyPair<OreTypes, StoneType>, RegistryObject<OresBlock>> entry : BlockRegistry.ORE_BLOCKS.entrySet()){
             blockOre(entry.getValue().get(),
-                    entry.getValue().get().getStoneType());
+                   entry.getKey().getKey2());
         }
 
     }
