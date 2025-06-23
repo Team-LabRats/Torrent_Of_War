@@ -1,4 +1,4 @@
-package org.labrat.torrent_of_war.api.ores;
+package org.labrat.torrentofwar.api.ores;
 
 import lombok.Getter;
 import net.minecraft.world.level.block.Block;

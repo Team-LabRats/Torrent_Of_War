@@ -1,13 +1,10 @@
-package org.labrat.torrent_of_war.api.block;
+package org.labrat.torrentofwar.api.block;
 
 import lombok.Getter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import org.labrat.torrent_of_war.api.ores.OreTypes;
-import org.labrat.torrent_of_war.api.ores.StoneType;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.labrat.torrentofwar.api.ores.OreTypes;
+import org.labrat.torrentofwar.api.ores.StoneType;
 
 public class OresBlock extends Block {
     @Getter

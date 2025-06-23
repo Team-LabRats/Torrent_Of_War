@@ -1,8 +1,8 @@
-package org.labrat.torrent_of_war.api.ores;
+package org.labrat.torrentofwar.api.ores;
 
 import lombok.Getter;
 import net.minecraft.resources.ResourceLocation;
-import org.labrat.torrent_of_war.TorrentOfWarMod;
+import org.labrat.torrentofwar.TorrentOfWarMod;
 
 public enum OreTypes {
     TERRANIUM("terranium");
@@ -22,6 +22,6 @@ public enum OreTypes {
     }
 
     public ResourceLocation getResourceLocation() {
-        return ResourceLocation.fromNamespaceAndPath(modid,id);
+        return ResourceLocation.fromNamespaceAndPath(modid,"block/ores/"+id);
     }
 }

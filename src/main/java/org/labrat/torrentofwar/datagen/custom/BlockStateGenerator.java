@@ -1,19 +1,19 @@
-package org.labrat.torrent_of_war.datagen.custom;
+package org.labrat.torrentofwar.datagen.custom;
 
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
-import net.minecraftforge.client.model.generators.BlockModelProvider;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.labrat.torrent_of_war.TorrentOfWarMod;
-import org.labrat.torrent_of_war.api.block.OresBlock;
-import org.labrat.torrent_of_war.api.ores.StoneType;
-import org.labrat.torrent_of_war.registry.BlockRegistry;
+import org.labrat.torrentofwar.TorrentOfWarMod;
+import org.labrat.torrentofwar.api.block.OresBlock;
+import org.labrat.torrentofwar.api.ores.StoneType;
+import org.labrat.torrentofwar.registry.BlockRegistry;
 
 import java.util.Map;
 
@@ -25,7 +25,8 @@ public class BlockStateGenerator extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         for(Map.Entry<String, RegistryObject<OresBlock>> entry : BlockRegistry.ORE_BLOCKS.entrySet()){
-            blockOre(entry.getValue().get(), entry.getValue().get().getStoneType());
+            blockOre(entry.getValue().get(),
+                    entry.getValue().get().getStoneType());
         }
 
     }
@@ -37,7 +38,7 @@ public class BlockStateGenerator extends BlockStateProvider {
 
     public BlockModelBuilder texturesOres(OresBlock block, StoneType types){
         return texturesTwoLocation(name(block),stringBlockParent(block,"ore"),
-                "0", ResourceLocation.parse(types.getBlock().getDescriptionId()),
+                "0", ResourceLocation.parse("block/"+types.getBlock().getDescriptionId().split("\\.")[2]),
                 "1", block.getOreType().getResourceLocation());
     }
     private void blockOre(OresBlock block, StoneType types){
