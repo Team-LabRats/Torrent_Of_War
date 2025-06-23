@@ -1,6 +1,7 @@
 {
-  "parent": "block/cube_all",
+  "parent": "torrentofwar:block/stone/stone",
   "textures": {
-    "all": "torrentofwar:block/stone/base_stone_vertical"
+    "0": "torrentofwar:block/stone/base_stone_vertical",
+    "1": "torrentofwar:block/stone/base_stone_vertical_overlay"
   }
 }

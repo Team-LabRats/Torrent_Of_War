@@ -11,7 +11,7 @@ public enum StoneType {
     NETHERRACK(Blocks.NETHERRACK),
     END_STONE(Blocks.END_STONE),
 
-    SOAP_STONE(TorrentOfWarMod.MODID,StoneTextureType.HORIZONTAL,0xfffbd9 ,
+    SOAP_STONE(TorrentOfWarMod.MODID, StoneModelType.HORIZONTAL,0xb8b67a,0x696644,
             2.0F, 6.0F)
     ;
 
@@ -26,18 +26,21 @@ public enum StoneType {
     String modid;
 
     @Getter
-    StoneTextureType textureType;
+    StoneModelType textureType;
     @Getter
     float hardness;
     @Getter
-    int colour;
+    int secondaryColour;
+    @Getter
+    int primaryColour;
     @Getter
     float resistance;
 
-    StoneType(String modid, StoneTextureType textureType, int colour, float hardness, float resistance) {
+    StoneType(String modid, StoneModelType textureType, int primaryColour, int secondaryColour, float hardness, float resistance) {
         this.modid = modid;
         this.textureType = textureType;
-        this.colour = colour;
+        this.primaryColour = primaryColour;
+        this.secondaryColour = secondaryColour;
         this.hardness = hardness;
         this.resistance = resistance;
     }
@@ -45,5 +48,11 @@ public enum StoneType {
     @Override
     public String toString() {
         return super.toString().toLowerCase();
+    }
+
+    public int getColor(int index) {
+        if(index == 0)
+            return primaryColour;
+        return secondaryColour;
     }
 }

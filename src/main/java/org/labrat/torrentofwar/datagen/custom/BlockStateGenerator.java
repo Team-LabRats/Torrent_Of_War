@@ -1,6 +1,5 @@
 package org.labrat.torrentofwar.datagen.custom;
 
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -15,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import org.labrat.torrentofwar.TorrentOfWarMod;
 import org.labrat.torrentofwar.api.block.OresBlock;
 import org.labrat.torrentofwar.api.ores.OreTypes;
-import org.labrat.torrentofwar.api.ores.StoneTextureType;
+import org.labrat.torrentofwar.api.ores.StoneModelType;
 import org.labrat.torrentofwar.api.ores.StoneType;
 import org.labrat.torrentofwar.registry.BlockRegistry;
 import org.labrat.torrentofwar.utils.KeyPair;
@@ -40,11 +39,11 @@ public class BlockStateGenerator extends BlockStateProvider {
 
     }
 
-    private void blockStone(@NotNull Block block, StoneTextureType key) {
+    private void blockStone(@NotNull Block block, StoneModelType key) {
         simpleBlockWithItem(block,textureStone(block,key));
     }
 
-    private ModelFile textureStone(@NotNull Block block, StoneTextureType key) {
+    private ModelFile textureStone(@NotNull Block block, StoneModelType key) {
         return models().withExistingParent(name(block), ResourceLocation.parse(key.getId()));
 
     }
@@ -70,7 +69,7 @@ public class BlockStateGenerator extends BlockStateProvider {
 
     public ResourceLocation stringBlockParent(Block block,String path) {
         ResourceLocation name = key(block);
-        return new ResourceLocation(name.getNamespace(), ModelProvider.BLOCK_FOLDER + "/" + path);
+        return ResourceLocation.fromNamespaceAndPath(name.getNamespace(), ModelProvider.BLOCK_FOLDER + "/" + path);
     }
     private ResourceLocation key(Block block) {
         return ForgeRegistries.BLOCKS.getKey(block);

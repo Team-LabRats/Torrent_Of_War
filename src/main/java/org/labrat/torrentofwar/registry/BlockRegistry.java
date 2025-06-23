@@ -2,6 +2,8 @@ package org.labrat.torrentofwar.registry;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -16,6 +18,7 @@ import org.labrat.torrentofwar.utils.KeyPair;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class BlockRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TorrentOfWarMod.MODID);
@@ -23,14 +26,15 @@ public class BlockRegistry {
     public static final Object2ObjectArrayMap<StoneType, RegistryObject<Block>> STONE_BLOCK = new Object2ObjectArrayMap<>();
 
     public static final BiFunction<OreTypes, StoneType, RegistryObject<OresBlock>> ORE_FUNCTION = ((oreType, stoneType) -> {
-        return BLOCKS.register(oreType.getId()+"_"+ stoneType.getBlock().getDescriptionId().split("\\.")[2] +"_ore",
+        return registerBlock(oreType.getId()+"_"+ stoneType.getBlock().getDescriptionId().split("\\.")[2] +"_ore",
                 ()->new OresBlock(oreType,stoneType));
     });
 
     public static final Function<StoneType, RegistryObject<Block>> STONE_FUNCTION = ((stoneType) -> {
-        return BLOCKS.register(stoneType.toString(),
+        return registerBlock(stoneType.toString(),
                 ()->new Block(BlockBehaviour.Properties.of().strength(stoneType.getHardness(), stoneType.getResistance())));
     });
+
     public static void init(IEventBus modEventBus){
         for(OreTypes oreType : OreTypes.values()){
             for(StoneType stoneType : StoneType.values()){
@@ -45,5 +49,23 @@ public class BlockRegistry {
         }
 
         BLOCKS.register(modEventBus);
+    }
+
+
+
+
+
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerBlockItem(name, toReturn);
+        return toReturn;
+
+    }
+
+
+    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
+
+        return ItemRegistry.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+
     }
 }
