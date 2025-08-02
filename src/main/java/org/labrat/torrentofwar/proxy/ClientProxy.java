@@ -21,25 +21,15 @@ public class ClientProxy extends CommonProxy{
     public void registerItemColors(RegisterColorHandlersEvent.Item event){
 
         for(Map.Entry<StoneType, RegistryObject<Block>> entry : BlockRegistry.STONE_BLOCK.entrySet()){
-            event.register(new ItemColor() {
-                @Override
-                public int getColor(ItemStack stack, int index) {
-                    return entry.getKey().getColor(index);
-                }
-            }, entry.getValue().get());
+            event.register((stack, index) -> entry.getKey().getColor(index), entry.getValue().get());
         }
     }
     @SubscribeEvent
     public void registerBlockColors(RegisterColorHandlersEvent.Block event){
 
         for(Map.Entry<StoneType, RegistryObject<Block>> entry : BlockRegistry.STONE_BLOCK.entrySet()){
-            event.register(new BlockColor() {
-                @Override
-                public int getColor(BlockState state, @Nullable BlockAndTintGetter tintGetter,
-                                    @Nullable BlockPos blockPos, int index) {
-                    return entry.getKey().getColor(index);
-                }
-            }, entry.getValue().get());
+            event.register((state, tintGetter, blockPos, index) ->
+                    entry.getKey().getColor(index), entry.getValue().get());
         }
     }
 }
