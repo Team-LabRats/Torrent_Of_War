@@ -1,6 +1,6 @@
 {
   "parent": "torrentofwar:block/stone/stone",
   "textures": {
-    "0": "torrentofwar:block/stone/base_stone_vertical"
+    "0": "torrentofwar:block/stone/stone_vertical"
   }
 }

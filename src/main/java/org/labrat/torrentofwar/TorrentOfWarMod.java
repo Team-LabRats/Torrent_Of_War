@@ -15,7 +15,7 @@ public class TorrentOfWarMod {
     public static final String MODID = "torrentofwar";
     public static final String NAME = "Torrent of War";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static Logger LOGGER = LogUtils.getLogger();
 
     public TorrentOfWarMod() {
         TorrentOfWarMod.init();

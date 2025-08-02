@@ -11,9 +11,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.labrat.torrentofwar.TorrentOfWarMod;
+import org.labrat.torrentofwar.api.FormattingUtils;
 import org.labrat.torrentofwar.api.block.OresBlock;
 import org.labrat.torrentofwar.api.ores.OreTypes;
 import org.labrat.torrentofwar.api.ores.StoneType;
+import org.labrat.torrentofwar.lang.Lang;
 import org.labrat.torrentofwar.utils.KeyPair;
 
 import java.util.function.BiFunction;
@@ -25,27 +27,27 @@ public class BlockRegistry {
     public static final Object2ObjectArrayMap<KeyPair<OreTypes, StoneType>, RegistryObject<OresBlock>> ORE_BLOCKS = new Object2ObjectArrayMap<>();
     public static final Object2ObjectArrayMap<StoneType, RegistryObject<Block>> STONE_BLOCK = new Object2ObjectArrayMap<>();
 
-    public static final BiFunction<OreTypes, StoneType, RegistryObject<OresBlock>> ORE_FUNCTION = ((oreType, stoneType) -> {
-        return registerBlock(oreType.getId()+"_"+ stoneType.getBlock().getDescriptionId().split("\\.")[2] +"_ore",
-                ()->new OresBlock(oreType,stoneType));
-    });
+    public static final BiFunction<OreTypes, StoneType, RegistryObject<OresBlock>> ORE_FUNCTION = ((oreType, stoneType) ->
+            registerBlock(oreType.getId()+"_"+ stoneType.toString().toLowerCase() +"_ore",
+            ()->new OresBlock(oreType,stoneType)));
 
-    public static final Function<StoneType, RegistryObject<Block>> STONE_FUNCTION = ((stoneType) -> {
-        return registerBlock(stoneType.toString(),
-                ()->new Block(BlockBehaviour.Properties.of().strength(stoneType.getHardness(), stoneType.getResistance())));
-    });
+    public static final Function<StoneType, RegistryObject<Block>> STONE_FUNCTION = ((stoneType) -> registerBlock(stoneType.toString(),
+            ()->new Block(BlockBehaviour.Properties.of().strength(stoneType.getHardness(), stoneType.getResistance()))));
 
     public static void init(IEventBus modEventBus){
         for(OreTypes oreType : OreTypes.values()){
             for(StoneType stoneType : StoneType.values()){
-                if(stoneType.getBlock() == null) continue;
-                ORE_BLOCKS.put(new KeyPair<>(oreType,stoneType), ORE_FUNCTION.apply(oreType,stoneType));
+                RegistryObject<OresBlock> block = ORE_FUNCTION.apply(oreType,stoneType);
+                Lang.add(block, FormattingUtils.toEnglishName(block.getId().getPath()));
+                ORE_BLOCKS.put(new KeyPair<>(oreType,stoneType), block);
             }
         }
 
         for(StoneType stoneType : StoneType.values()){
             if(stoneType.getBlock() != null) continue;
-            STONE_BLOCK.put(stoneType, STONE_FUNCTION.apply(stoneType));
+            RegistryObject<Block> block = STONE_FUNCTION.apply(stoneType);
+            Lang.add(block, FormattingUtils.toEnglishName(block.getId().getPath()));
+            STONE_BLOCK.put(stoneType, block);
         }
 
         BLOCKS.register(modEventBus);

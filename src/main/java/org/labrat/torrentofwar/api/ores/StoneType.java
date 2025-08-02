@@ -18,12 +18,13 @@ public enum StoneType {
     @Getter
     Block block;
 
-    StoneType(Block block) {
-        this.block = block;
-    }
-
     @Getter
     String modid;
+    StoneType(Block block) {
+        this.block = block;
+        this.modid = "minecraft";
+    }
+
 
     @Getter
     StoneModelType textureType;

@@ -54,15 +54,26 @@ public class BlockStateGenerator extends BlockStateProvider {
         return models().withExistingParent(name, parent).texture(textureKey1, texture1).texture(textureKey2, texture2);
     }
 
+    private ModelFile texturesCustomOres(OresBlock block, StoneType types) {
+        return texturesTwoLocation(name(block),stringBlockParent(block,"ore"),
+                "0", ResourceLocation.parse(types.getTextureType().getId()),
+                "1", block.getOreType().getResourceLocation());
+    }
     public BlockModelBuilder texturesOres(OresBlock block, StoneType types){
         return texturesTwoLocation(name(block),stringBlockParent(block,"ore"),
-                "0", ResourceLocation.parse("block/"+types.getBlock().getDescriptionId().split("\\.")[2]),
+                "0", ResourceLocation.fromNamespaceAndPath(types.getModid(),"block/"+ types),
                 "1", block.getOreType().getResourceLocation());
     }
 
     private void blockOre(OresBlock block, StoneType types){
+        if(types.getBlock() == null){
+            simpleBlockWithItem(block,texturesCustomOres(block,types));
+            return;
+        }
         simpleBlockWithItem(block,texturesOres(block,types));
     }
+
+
     private void blockWithItem(RegistryObject<Block> blockRegistryObject){
         simpleBlockWithItem(blockRegistryObject.get(),cubeAll(blockRegistryObject.get()));
     }

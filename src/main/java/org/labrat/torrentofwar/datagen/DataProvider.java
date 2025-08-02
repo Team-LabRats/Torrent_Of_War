@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.labrat.torrentofwar.TorrentOfWarMod;
 import org.labrat.torrentofwar.datagen.custom.BlockStateGenerator;
+import org.labrat.torrentofwar.datagen.custom.LanguageGenerator;
 
 @Mod.EventBusSubscriber(modid = TorrentOfWarMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataProvider {
@@ -19,5 +20,6 @@ public class DataProvider {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
         generator.addProvider(event.includeClient(), new BlockStateGenerator(packOutput,existingFileHelper));
+        generator.addProvider(event.includeClient(), new LanguageGenerator(packOutput));
     }
 }
