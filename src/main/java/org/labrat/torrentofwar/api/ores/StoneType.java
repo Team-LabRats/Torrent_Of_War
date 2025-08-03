@@ -1,17 +1,22 @@
 package org.labrat.torrentofwar.api.ores;
 
 import lombok.Getter;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.labrat.torrentofwar.TorrentOfWarMod;
+import org.labrat.torrentofwar.api.Utils;
+
+import java.util.Objects;
 
 public enum StoneType {
-    STONE(Blocks.STONE),
-    DEEPSLATE(Blocks.DEEPSLATE),
-    NETHERRACK(Blocks.NETHERRACK),
-    END_STONE(Blocks.END_STONE),
+    STONE(Blocks.STONE, "stone"),
+    DEEPSLATE(Blocks.DEEPSLATE, "deepslate"),
+    NETHERRACK(Blocks.NETHERRACK, "netherrack"),
+    ENDSTONE(Blocks.END_STONE, "end_stone"),
 
-    SOAP_STONE(TorrentOfWarMod.MODID, StoneModelType.HORIZONTAL,0x333333,
+    SOAPSTONE(TorrentOfWarMod.MODID, StoneModelType.HORIZONTAL,0x333333,
             2.0F, 6.0F)
     ;
 
@@ -22,7 +27,13 @@ public enum StoneType {
     String modid;
     StoneType(Block block) {
         this.block = block;
-        this.modid = "minecraft";
+        this.modid = ForgeRegistries.BLOCKS.getKey(block).getNamespace();
+    }
+    @Getter
+    String blockId;
+    StoneType(Block block, String blockId) {
+        this(block);
+        this.blockId = blockId;
     }
 
 
@@ -31,7 +42,7 @@ public enum StoneType {
     @Getter
     float hardness;
     @Getter
-    int primaryColour;
+    int primaryColour = Utils.INT_NULL;
     @Getter
     float resistance;
 
@@ -49,6 +60,8 @@ public enum StoneType {
     }
 
     public int getColor(int index) {
-        return primaryColour;
+        if(index == 0 && !Utils.isNull(primaryColour))
+            return primaryColour;
+        return -1;
     }
 }

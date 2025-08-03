@@ -61,7 +61,7 @@ public class BlockStateGenerator extends BlockStateProvider {
     }
     public BlockModelBuilder texturesOres(OresBlock block, StoneType types){
         return texturesTwoLocation(name(block),stringBlockParent(block,"ore"),
-                "0", ResourceLocation.fromNamespaceAndPath(types.getModid(),"block/"+ types),
+                "0", ResourceLocation.fromNamespaceAndPath(types.getModid(),"block/"+ types.getBlockId()),
                 "1", block.getOreType().getResourceLocation());
     }
 

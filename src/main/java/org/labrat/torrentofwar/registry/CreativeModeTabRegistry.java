@@ -17,7 +17,7 @@ public class CreativeModeTabRegistry {
 
     public static final RegistryObject<CreativeModeTab> TORRENTOFWAR_TAB =
             REGISTER.register(TorrentOfWarMod.MODID+".tab", ()-> CreativeModeTab.builder()
-                    .icon(()->new ItemStack(BlockRegistry.STONE_BLOCK.get(StoneType.SOAP_STONE).get().asItem()))
+                    .icon(()->new ItemStack(BlockRegistry.STONE_BLOCK.get(StoneType.SOAPSTONE).get().asItem()))
                     .title(Lang.add("itemGroup."+TorrentOfWarMod.MODID+".tab", "TorrentOfWar Tab"))
                     .displayItems((unused, output) -> {
                         BlockRegistry.STONE_BLOCK.forEach((stoneType, blockRegistryObject) -> {

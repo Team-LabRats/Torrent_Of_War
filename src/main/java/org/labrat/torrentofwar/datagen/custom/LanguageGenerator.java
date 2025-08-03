@@ -16,7 +16,10 @@ public class LanguageGenerator extends LanguageProvider {
     @Override
     protected void addTranslations() {
         for(Map.Entry<String,String> entry : Lang.MAP.entrySet()){
-            add(entry.getKey(),entry.getValue());
+            String value = entry.getValue();
+            if(entry.getValue().contains(" Stone "))
+                value = value.replace(" Stone ", " ");
+            add(entry.getKey(),value);
         }
 
     }

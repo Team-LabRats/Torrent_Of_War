@@ -1,7 +1,0 @@
-{
-  "parent": "torrentofwar:block/ore",
-  "textures": {
-    "0": "torrentofwar:block/stone/stone_horizontal",
-    "1": "torrentofwar:block/ores/terranium"
-  }
-}

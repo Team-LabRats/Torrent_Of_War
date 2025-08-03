@@ -1,9 +1,9 @@
 {
-  "block.torrentofwar.soap_stone": "Soap Stone",
+  "block.torrentofwar.soapstone": "Soapstone",
   "block.torrentofwar.terranium_deepslate_ore": "Terranium Deepslate Ore",
-  "block.torrentofwar.terranium_end_stone_ore": "Terranium End Stone Ore",
+  "block.torrentofwar.terranium_endstone_ore": "Terranium Endstone Ore",
   "block.torrentofwar.terranium_netherrack_ore": "Terranium Netherrack Ore",
-  "block.torrentofwar.terranium_soap_stone_ore": "Terranium Soap Stone Ore",
-  "block.torrentofwar.terranium_stone_ore": "Terranium Stone Ore",
+  "block.torrentofwar.terranium_soapstone_ore": "Terranium Soapstone Ore",
+  "block.torrentofwar.terranium_stone_ore": "Terranium Ore",
   "itemGroup.torrentofwar.tab": "TorrentOfWar Tab"
 }
