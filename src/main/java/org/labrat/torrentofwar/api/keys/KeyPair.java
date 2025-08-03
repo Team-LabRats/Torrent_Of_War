@@ -1,4 +1,4 @@
-package org.labrat.torrentofwar.utils;
+package org.labrat.torrentofwar.api.keys;
 
 import lombok.Getter;
 

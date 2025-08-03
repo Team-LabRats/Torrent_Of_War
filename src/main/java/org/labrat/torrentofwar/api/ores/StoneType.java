@@ -64,4 +64,8 @@ public enum StoneType {
             return primaryColour;
         return -1;
     }
+
+    public boolean isVanilla() {
+        return Utils.isNull(primaryColour);
+    }
 }

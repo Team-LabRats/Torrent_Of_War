@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.labrat.torrentofwar.TorrentOfWarMod;
 
 public enum OreTypes {
-    TERRANIUM("terranium");
+    TERRANIUM("terranium", OreProperties);
 
     @Getter
     String id;

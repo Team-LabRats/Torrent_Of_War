@@ -5,6 +5,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.labrat.torrentofwar.server.registry.BlockRegistry;
 import org.labrat.torrentofwar.server.registry.CreativeModeTabRegistry;
 import org.labrat.torrentofwar.server.registry.ItemRegistry;
+import org.labrat.torrentofwar.server.world.WorldGenerationManager;
 
 public class CommonProxy {
     public CommonProxy() {
@@ -14,5 +15,7 @@ public class CommonProxy {
         ItemRegistry.init(modEventBus);
         CreativeModeTabRegistry.init(modEventBus);
         BlockRegistry.init(modEventBus);
+
+        WorldGenerationManager.init();
     }
 }

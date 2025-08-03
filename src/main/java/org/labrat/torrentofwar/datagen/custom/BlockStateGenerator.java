@@ -17,7 +17,7 @@ import org.labrat.torrentofwar.api.ores.OreTypes;
 import org.labrat.torrentofwar.api.ores.StoneModelType;
 import org.labrat.torrentofwar.api.ores.StoneType;
 import org.labrat.torrentofwar.server.registry.BlockRegistry;
-import org.labrat.torrentofwar.utils.KeyPair;
+import org.labrat.torrentofwar.api.keys.KeyPair;
 
 import java.util.Map;
 
