@@ -1,6 +1,5 @@
-package org.labrat.torrentofwar.lang;
+package org.labrat.torrentofwar.client.lang;
 
-import com.google.common.collect.HashBiMap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;

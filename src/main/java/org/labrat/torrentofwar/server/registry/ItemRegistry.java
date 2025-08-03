@@ -1,4 +1,4 @@
-package org.labrat.torrentofwar.registry;
+package org.labrat.torrentofwar.server.registry;
 
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;

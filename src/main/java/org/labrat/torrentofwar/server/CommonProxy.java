@@ -1,10 +1,10 @@
-package org.labrat.torrentofwar.proxy;
+package org.labrat.torrentofwar.server;
 
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.labrat.torrentofwar.registry.BlockRegistry;
-import org.labrat.torrentofwar.registry.CreativeModeTabRegistry;
-import org.labrat.torrentofwar.registry.ItemRegistry;
+import org.labrat.torrentofwar.server.registry.BlockRegistry;
+import org.labrat.torrentofwar.server.registry.CreativeModeTabRegistry;
+import org.labrat.torrentofwar.server.registry.ItemRegistry;
 
 public class CommonProxy {
     public CommonProxy() {

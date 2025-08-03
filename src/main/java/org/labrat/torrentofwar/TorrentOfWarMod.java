@@ -3,8 +3,8 @@ package org.labrat.torrentofwar;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
-import org.labrat.torrentofwar.proxy.ClientProxy;
-import org.labrat.torrentofwar.proxy.CommonProxy;
+import org.labrat.torrentofwar.client.ClientProxy;
+import org.labrat.torrentofwar.server.CommonProxy;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file

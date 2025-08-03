@@ -1,7 +1,6 @@
-package org.labrat.torrentofwar.registry;
+package org.labrat.torrentofwar.server.registry;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -15,7 +14,7 @@ import org.labrat.torrentofwar.api.FormattingUtils;
 import org.labrat.torrentofwar.api.block.OresBlock;
 import org.labrat.torrentofwar.api.ores.OreTypes;
 import org.labrat.torrentofwar.api.ores.StoneType;
-import org.labrat.torrentofwar.lang.Lang;
+import org.labrat.torrentofwar.client.lang.Lang;
 import org.labrat.torrentofwar.utils.KeyPair;
 
 import java.util.function.BiFunction;

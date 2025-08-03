@@ -1,7 +1,6 @@
-package org.labrat.torrentofwar.registry;
+package org.labrat.torrentofwar.server.registry;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -9,7 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.labrat.torrentofwar.TorrentOfWarMod;
 import org.labrat.torrentofwar.api.ores.StoneType;
-import org.labrat.torrentofwar.lang.Lang;
+import org.labrat.torrentofwar.client.lang.Lang;
 
 public class CreativeModeTabRegistry {
     public static final DeferredRegister<CreativeModeTab> REGISTER =
