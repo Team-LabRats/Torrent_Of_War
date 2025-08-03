@@ -1,0 +1,7 @@
+{
+  "parent": "torrentofwar:block/ore",
+  "textures": {
+    "0": "minecraft:block/end_stone",
+    "1": "torrentofwar:block/ores/terranium"
+  }
+}
